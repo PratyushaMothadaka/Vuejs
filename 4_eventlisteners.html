@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Event Listeners</title>
+        <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="root">
+            <h3>To-Do-List</h3>
+            <ul>
+                <li v-for="job in list" v-text="job"></li> 
+            </ul>
+            <input id="input" type="text" v-model="newItem">
+            <!-- <button v-on:click="addItem">Add item</button>  -->
+            <button @click="addItem">Add item</button>  <!-- v-on:click and @click both act as event listeners -->
+            <!--v-on is a directive for event-listeners and anything after the column is the arguement-->
+        </div>
+
+        <script>
+
+            var app = new Vue
+            ({
+                el:"#root",
+                data: 
+                {
+                    newItem:'',
+                    list:['Wake-up','Work','Read'] 
+                },
+                methods:
+                {
+                    addItem() {
+                        //alert('Adding a new item');
+                        this.list.push(this.newItem);
+                        this.newItem='';
+                    }
+                },
+            });
+
+            
+
+        </script>
+
+    </body>
+</html>

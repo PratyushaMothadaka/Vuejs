@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Data Binding</title>
+        <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    </head>
+    <body>
+        <!--   v-model is a directive for form inputs and controls  -->
+        <!--   Any vue directive we use begin with v-(directive name) -->
+        <div id="root">
+            <label for="name"> Enter your Name: <label>
+            <input type="text" id="name" v-model="name">
+            <p> Your name is recorded as {{ name }}</p>
+        </div>
+
+        <script>
+        // let data = {
+        //     name: 'Pratyusha Mothadaka'
+        // };
+
+        new Vue({
+            el:"#root",
+            data:{
+                name:'Pratyusha Mothadaka'
+            }
+
+        })
+        </script>
+
+    </body>
+</html>

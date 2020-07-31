@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Lists</title>
+        <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="root">
+            <h3>To-Do-List</h3>
+            <ul>
+                <!-- <li v-for="job in list">{{ job }}</li> -->
+                <!-- V-text is used for text content -->
+                <li v-for="job in list" v-text="job"></li> 
+            </ul>
+            <input id="input" type="text">
+            <button id="button">Add item</button>
+        </div>
+
+        <script>
+
+            var app = new Vue
+            ({
+                el:"#root",
+                data: 
+                {
+                    list:['Wake-up','Work','Read'] 
+                },
+                mounted() //mounted() is called when the DOM is mounted
+                {
+                    document.querySelector('#button').addEventListener('click', () => {
+                    let job = document.querySelector('#input');
+                    app.list.push(job.value);
+                    job.value = '';
+                    });
+                },
+            });
+
+            
+
+        </script>
+
+    </body>
+</html>
